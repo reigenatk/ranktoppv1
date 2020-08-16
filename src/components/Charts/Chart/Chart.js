@@ -100,7 +100,7 @@ class Chart extends Component {
       this.props.pp[this.props.pp.length - 1] -
       this.props.pp[this.props.pp.length - 2];
     let arrow;
-    if (difff > 0) {
+    if (difff >= 0) {
       arrow = <span className={classes.arrowup}></span>;
     } else {
       arrow = <span className={classes.arrowdown}></span>;
