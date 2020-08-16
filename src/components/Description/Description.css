@@ -1,0 +1,11 @@
+.description {
+  background-color: #4831d4;
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  color: #ccf381;
+}
+
+.description a {
+  color: #ffc0cb;
+}

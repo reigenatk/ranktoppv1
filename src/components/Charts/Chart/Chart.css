@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+
+.chart {
+  background-color: #5cc5f3;
+  width: 500px;
+  height: 900px;
+  margin: 25px 25px;
+
+  font-family: "Pangolin", cursive;
+}
+
+.arrowup {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  display: inline-block;
+  border-bottom: 15px solid green;
+}
+
+.arrowdown {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  display: inline-block;
+  border-top: 15px solid red;
+}
+
+.players {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.chart a {
+  color: white;
+  text-decoration: none;
+}
+
+.chart a:hover {
+  text-decoration: underline;
+}
+
+.chart img {
+  width: 150px;
+  margin-bottom: 10px;
+}
