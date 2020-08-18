@@ -4,6 +4,8 @@ import axios from "axios";
 import Graph from "./Graph/Graph";
 import Current from "./Current/Current";
 import Challenger from "./Challenger/Challenger";
+import Spinner from "../../UI/Spinner";
+import Auxiliary from "../../../HOC/Auxiliary";
 
 class Chart extends Component {
   state = {
@@ -28,6 +30,7 @@ class Chart extends Component {
       rank: null,
       country: null,
     },
+    loaded: false,
   };
 
   componentDidMount() {
@@ -74,9 +77,7 @@ class Chart extends Component {
             country: response.data.ranking[val + 1].user.country_code,
           },
         });
-
-        console.log(response);
-        console.log(this.state);
+        this.setState({ loaded: true });
       })
       .catch((error) => {
         console.log(error);
@@ -106,16 +107,25 @@ class Chart extends Component {
       arrow = <span className={classes.arrowdown}></span>;
     }
 
+    let content = <Spinner></Spinner>;
+    if (this.state.loaded) {
+      content = (
+        <Auxiliary>
+          <h1 style={{ textAlign: "center" }}>
+            {this.props.milestone} digit: {this.state.current.pp} pp ({arrow}
+            {difff} pp)
+          </h1>
+          {players}
+          <h3 style={{ color: "	#90EE90", textAlign: "center" }}>
+            Difference: {ppgaprounded} pp
+          </h3>
+        </Auxiliary>
+      );
+    }
+
     return (
       <div className={classes.chart}>
-        <h1 style={{ textAlign: "center" }}>
-          {this.props.milestone} digit: {this.state.current.pp} pp ({arrow}
-          {difff} pp)
-        </h1>
-        {players}
-        <h3 style={{ color: "	#90EE90", textAlign: "center" }}>
-          Difference: {ppgaprounded} pp
-        </h3>
+        {content}
         <Graph pp={this.props.pp} dates={this.props.dates}></Graph>
       </div>
     );

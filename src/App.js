@@ -6,6 +6,10 @@ import Charts from "./components/Charts/Charts";
 import MyInfo from "./components/MyInfo/MyInfo";
 
 class App extends Component {
+  componentDidMount() {
+    document.title = "Rank to PP";
+  }
+
   render() {
     return (
       <div className="App">
