@@ -97,10 +97,11 @@ class Chart extends Component {
         </div>
       );
     }
-    let difff =
+    let diff =
       this.props.pp[this.props.pp.length - 1] -
       this.props.pp[this.props.pp.length - 2];
     let arrow;
+    let difff = diff.toFixed(1);
     if (difff >= 0) {
       arrow = <span className={classes.arrowup}></span>;
     } else {
