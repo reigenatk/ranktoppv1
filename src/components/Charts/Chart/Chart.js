@@ -77,6 +77,7 @@ class Chart extends Component {
             country: response.data.ranking[val + 1].user.country_code,
           },
         });
+        console.log(response);
         this.setState({ loaded: true });
       })
       .catch((error) => {
