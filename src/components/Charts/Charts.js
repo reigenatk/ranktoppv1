@@ -18,7 +18,7 @@ class charts extends Component {
       .then((response) => {
         this.setState({ access_token: response.data });
         console.log("access token granted");
-        axios.get("http://localhost:4000/pp").then((response) => {
+        axios.get("https://git.heroku.com/ranktopp.git/pp").then((response) => {
           let curdates = response.data.map((val) => {
             return val.day;
           });
