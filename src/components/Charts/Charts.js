@@ -1,41 +1,48 @@
-import React, { Component } from "react";
-import classes from "./Charts.css";
-import Chart from "./Chart/Chart";
-import axios from "axios";
-import Auxiliary from "../../HOC/Auxiliary";
+import React, {Component} from 'react';
+import classes from './Charts.css';
+import Chart from './Chart/Chart';
+import axios from 'axios';
+import Auxiliary from '../../HOC/Auxiliary';
 class charts extends Component {
   state = {
-    access_token: "",
+    access_token: '',
     dates: [],
     ONEPP: null,
     TWOPP: null,
     THREEPP: null,
     FOURPP: null,
   };
-  componentDidMount() {
+  componentDidMount () {
     axios
-      .get("https://ranktopp.herokuapp.com/accesstoken")
-      .then((response) => {
-        this.setState({ access_token: response.data });
-        console.log("access token granted");
-        axios.get("https://ranktopp.herokuapp.com/pp").then((response) => {
-          let curdates = response.data.map((val) => {
+      .get ('https://ranktopp.herokuapp.com/accesstoken')
+      .then (response => {
+        this.setState ({access_token: response.data});
+        console.log ('access token granted');
+        // https://ranktopp.herokuapp.com/pp
+        // http://localhost:4000/pp
+        axios.get ('https://ranktopp.herokuapp.com/pp').then (response => {
+          let curdates = response.data.map (val => {
             return val.day;
           });
-          let oPP = response.data.map((val) => {
+          let oPP = response.data.map (val => {
             return val.oneDigitpp;
           });
-          let tPP = response.data.map((val) => {
+          let tPP = response.data.map (val => {
             return val.twoDigitpp;
           });
-          let thPP = response.data.map((val) => {
+          let thPP = response.data.map (val => {
             return val.threeDigitpp;
           });
-          let fPP = response.data.map((val) => {
+          let fPP = response.data.map (val => {
             return val.fourDigitpp;
           });
 
-          this.setState({
+          curdates = curdates.reverse ();
+          oPP = oPP.reverse ();
+          tPP = tPP.reverse ();
+          thPP = thPP.reverse ();
+          fPP = fPP.reverse ();
+          this.setState ({
             dates: curdates,
             ONEPP: oPP,
             TWOPP: tPP,
@@ -44,16 +51,17 @@ class charts extends Component {
           });
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch (error => {
+        console.log (error);
       });
   }
-  render() {
+  render () {
     const rankMilestones = [1, 2, 3, 4];
     let rankCharts = null;
     if (this.state.ONEPP && this.state.access_token) {
-      rankCharts = rankMilestones.map((num) => {
+      rankCharts = rankMilestones.map (num => {
         let ppData;
+
         if (num === 1) {
           ppData = this.state.ONEPP;
         } else if (num === 2) {
@@ -63,7 +71,12 @@ class charts extends Component {
         } else if (num === 4) {
           ppData = this.state.FOURPP;
         }
-
+        console.log (ppData);
+        let len = ppData.length;
+        let weeklyDelta = ppData[len - 1] - ppData[len - 8];
+        let weeklyRounded = weeklyDelta.toFixed (2);
+        let monthlyDelta = ppData[len - 1] - ppData[Math.max (0, len - 31)];
+        let monthlyRounded = monthlyDelta.toFixed (2);
         return (
           <Chart
             milestone={num}
@@ -71,13 +84,15 @@ class charts extends Component {
             accessToken={this.state.access_token}
             pp={ppData}
             dates={this.state.dates}
-          ></Chart>
+            weeklyChange={weeklyRounded}
+            monthlyChange={monthlyRounded}
+          />
         );
       });
     }
     let lastdate = this.state.dates[this.state.dates.length - 1];
     let lastdatep = (
-      <h1 style={{ textAlign: "center", color: "orange" }}>
+      <h1 style={{textAlign: 'center', color: 'orange'}}>
         Last updated on: {lastdate} @ 12:00 UTC
       </h1>
     );

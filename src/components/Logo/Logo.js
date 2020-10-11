@@ -1,10 +1,12 @@
-import React from "react";
-import classes from "./Logo.css";
+import React from 'react';
+import classes from './Logo.css';
 
-const logo = (props) => {
+const logo = props => {
   return (
     <div className={classes.Logo}>
-      <h1>Rank to PP</h1>
+      <h1>
+        <a href="https://osu.ppy.sh/home"><img src="osu2.PNG" /></a> Rank to PP
+      </h1>
     </div>
   );
 };

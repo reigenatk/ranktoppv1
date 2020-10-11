@@ -9,3 +9,11 @@
 .myinfo img {
   width: 50px;
 }
+
+.owo {
+  background: url("/../osu.png") no-repeat;
+}
+
+.owo:hover {
+  background: url("/public/owo.png") no-repeat;
+}

@@ -1,5 +1,11 @@
-.Logo {
+.Logo h1 {
   text-align: center;
   color: pink;
-  font-size: 40px;
+  font-size: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Logo img {
+  width: 100px;
 }

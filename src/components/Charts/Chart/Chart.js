@@ -87,10 +87,10 @@ class Chart extends Component {
 
   render() {
     let players = null;
-    let ppgaprounded;
+
     if (this.state.current.pp) {
       let ppgap = this.state.current.pp - this.state.challenger.pp;
-      ppgaprounded = ppgap.toFixed(1);
+      let ppgaprounded = ppgap.toFixed(2);
       players = (
         <div className={classes.players}>
           <Current obj={this.state.current} gap={ppgaprounded}></Current>
@@ -119,7 +119,10 @@ class Chart extends Component {
           </h1>
           {players}
           <h3 style={{ color: "	#90EE90", textAlign: "center" }}>
-            Difference: {ppgaprounded} pp
+            Weekly Change: {this.props.weeklyChange} pp
+          </h3>
+          <h3 style={{ color: "	#90EE90", textAlign: "center" }}>
+            Monthly Change: {this.props.monthlyChange} pp
           </h3>
         </Auxiliary>
       );
@@ -128,7 +131,14 @@ class Chart extends Component {
     return (
       <div className={classes.chart}>
         {content}
-        <Graph pp={this.props.pp} dates={this.props.dates}></Graph>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Graph pp={this.props.pp} dates={this.props.dates}></Graph>
+        </div>
       </div>
     );
   }

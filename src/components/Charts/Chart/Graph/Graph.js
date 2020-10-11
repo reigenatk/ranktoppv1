@@ -13,9 +13,6 @@ export default class Graph extends Component {
   componentDidMount() {
     const myChartRef = this.chartRef.current.getContext("2d");
     var ctx = document.getElementsByClassName("myChart");
-    for (var i = 0; i < ctx.length; i++) {
-      //ctx[i].style.backgroundColor = "rgb(" + 255 + "," + 102 + "," + 170 + ")";
-    }
 
     new Chart(myChartRef, {
       type: "line",
@@ -33,7 +30,8 @@ export default class Graph extends Component {
       },
       options: {
         //Customize chart options
-
+        responsive: true,
+        maintainAspectRatio: false,
         // so it won't cut off at top for whatever reason
         layout: {
           padding: {
@@ -47,7 +45,7 @@ export default class Graph extends Component {
                 display: false,
               },
               ticks: {
-                fontColor: "#3353df",
+                fontColor: "#312F2F",
               },
             },
           ],
@@ -55,7 +53,8 @@ export default class Graph extends Component {
             {
               ticks: {
                 precision: 0,
-                fontColor: "	#3353df",
+                fontColor: "#312F2F",
+                maxTicksLimit: 5,
               },
               gridLines: {
                 display: false,

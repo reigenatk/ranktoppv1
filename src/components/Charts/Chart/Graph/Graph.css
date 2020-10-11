@@ -1,0 +1,8 @@
+.graphContainer {
+  width: 500px;
+  height: 300px;
+}
+
+canvas {
+  background-color: #f6e8ea;
+}
