@@ -114,16 +114,11 @@ class Chart extends Component {
       content = (
         <Auxiliary>
           <h1 style={{ textAlign: "center" }}>
-            {this.props.milestone} digit: {this.state.current.pp} pp ({arrow}
+          <span style={{"color": "black"}}>{this.props.milestone} digit: {this.state.current.pp} pp</span> ({arrow}
             {difff} pp)
           </h1>
           {players}
-          <h3 style={{ color: "	#90EE90", textAlign: "center" }}>
-            Weekly Change: {this.props.weeklyChange} pp
-          </h3>
-          <h3 style={{ color: "	#90EE90", textAlign: "center" }}>
-            Monthly Change: {this.props.monthlyChange} pp
-          </h3>
+          
         </Auxiliary>
       );
     }
@@ -131,14 +126,22 @@ class Chart extends Component {
     return (
       <div className={classes.chart}>
         {content}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+
+        <h1 className={classes.chartlabels}>Past 20 Days: </h1>
+        <div className = {classes.center}>
           <Graph pp={this.props.pp} dates={this.props.dates}></Graph>
         </div>
+        <h3 className={classes.ppchange}>
+            Weekly Change: {this.props.weeklyChange} pp
+        </h3>
+
+        <h1 className={classes.chartlabels}>Monthly: </h1>
+        <div className = {classes.center}>
+          <Graph pp={this.props.monthlypp} dates={this.props.monthlydates}></Graph>
+        </div>
+        <h3 className={classes.ppchange}>
+            Monthly Change: {this.props.monthlyChange} pp
+        </h3>
       </div>
     );
   }

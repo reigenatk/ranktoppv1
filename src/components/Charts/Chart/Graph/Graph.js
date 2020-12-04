@@ -12,7 +12,6 @@ export default class Graph extends Component {
 
   componentDidMount() {
     const myChartRef = this.chartRef.current.getContext("2d");
-    var ctx = document.getElementsByClassName("myChart");
 
     new Chart(myChartRef, {
       type: "line",

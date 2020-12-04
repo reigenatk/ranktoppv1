@@ -5,7 +5,7 @@ const logo = props => {
   return (
     <div className={classes.Logo}>
       <h1>
-        <a href="https://osu.ppy.sh/home"><img src="osu2.PNG" /></a> Rank to PP
+        <a href="https://osu.ppy.sh/home"><img src="osu2.PNG" alt="logo"/></a> Rank to PP
       </h1>
     </div>
   );

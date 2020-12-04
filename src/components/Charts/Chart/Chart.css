@@ -3,7 +3,6 @@
 .chart {
   background-color: #5cc5f3;
   width: 600px;
-  height: 1050px;
   margin: 25px 25px;
 
   font-family: "Pangolin", cursive;
@@ -45,4 +44,19 @@
 .chart img {
   width: 150px;
   margin-bottom: 10px;
+}
+
+.chartlabels {
+  color: #ffd700;
+  text-align: center;
+}
+
+.ppchange {
+  color: #7F00FF; 
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }

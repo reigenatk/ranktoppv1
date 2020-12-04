@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=East+Sea+Dokdo&display=swap');
+
 .current {
   display: inline-block;
   text-align: center;
   margin: 0 20px;
+}
+
+.currentTitle {
+  color: 	#00FF7F;
+  font-family: 'Do Hyeon', sans-serif;
 }

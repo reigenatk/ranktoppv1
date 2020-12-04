@@ -9,10 +9,19 @@ const description = props => {
         Maybe even a two or one digit? Rank to PP tracks the
         trends in pp requirements over time for each milestone. The data is
         updated every day using the{' '}
-        <a href="https://osu.ppy.sh/docs/index.html">osu API v2</a>, Now that
-        you know what it takes, go out there and make some good plays!
+        <a href="https://osu.ppy.sh/docs/index.html">osu API v2</a>, at 12:00 UTC
 
-        PS. Rank is just a number- pls enjoy game
+        <br></br>
+        <br></br>
+        Some extra notes: Sometimes when you click on the rank of the player (say #10000), it will not be exactly the same
+        as on the official osu website. I believe this is because the API is not always completely in sync with the live values
+        and instead it updates once in a while.
+
+        Also the API only provides ranks up to 10k so unfortunately I cannot track the 5, 6 or 7 digit milestones.
+        <br></br>
+        <br></br>
+        Final Note, data collection began around August 17th of 2020, so the monthly graphs will look a little sparse for now. But I plan
+        to keep on collecting data until I have to pay money, which won't be for a while! So hopefully we'll have yearly tracking once I gather enough.
       </p>
     </div>
   );

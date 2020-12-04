@@ -17,10 +17,10 @@ const challenger = (props) => {
   }
   return (
     <div className={classes.challenger}>
-      <h1>Challenger (#{props.obj.rank}):</h1>
+      <h1 className={classes.challengerTitle}>Challenger (#{props.obj.rank}):</h1>
       <div className={classes.username}>
         <h1>
-          <a href={props.obj.profile}>{props.obj.username}</a>{" "}
+          <a href={props.obj.profile}><span style={{"color": "black"}}>{props.obj.username}</span></a>{" "}
           <img
             style={{ width: "25px", display: "inline-block" }}
             src={country}

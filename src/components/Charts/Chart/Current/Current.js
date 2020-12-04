@@ -17,7 +17,7 @@ const current = (props) => {
   }
   return (
     <div className={classes.current}>
-      <h1>Gatekeeper (#{props.obj.rank}):</h1>
+      <h1 className = {classes.currentTitle}>Gatekeeper (#{props.obj.rank}):</h1>
       <div className={classes.username}>
         <h1>
           <a href={props.obj.profile}>{props.obj.username}</a>{" "}
