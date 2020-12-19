@@ -16,6 +16,14 @@ const toolbar = props => {
         </NavLink>
         <NavLink
           className={classes.NavLink}
+          to="/mypp"
+          activeClassName={classes.active}
+          exact
+        >
+          Check my PP
+        </NavLink>
+        <NavLink
+          className={classes.NavLink}
           to="/"
           activeClassName={classes.active}
           exact

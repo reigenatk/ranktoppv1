@@ -18,8 +18,9 @@ class App extends Component {
         <Auxiliary>
           <Toolbar />
           <Logo />
-          <Route path="/whatisthis" component={Description} />
+          <Route path="/whatisthis" component={Description}/>
           <Route path="/" component={Charts} />
+          {/* <Route path="/mypp" component={MyPP} /> */}
           <MyInfo />
           <a href="https://info.flagcounter.com/FC7B">
             <img
